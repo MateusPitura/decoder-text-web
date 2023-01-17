@@ -14,12 +14,12 @@
         <main class="entrada-saida-botoes">
             <section class="secao-entrada-botoes">
                 <section class="secao-entrada-usuario">
-                    <textarea class="campo-entrada-usuario" placeholder="Digite seu texto"></textarea>
+                    <label><textarea id="campo-entrada-usuario" class="campo-entrada-usuario" placeholder="Digite seu texto"></textarea></label>
                 </section>
                 <section class="secao-criptografar-descriptografar">
                     <p class="informativo-formatacao-entrada">Apenas letras minúsculas e sem acento</p>
-                    <label><input class="botao-criptografar-usuario" type="submit" value="Criptografar"></label>
-                    <label><input class="botao-descriptografar-usuario" type="submit" value="Descriptografar"></label>
+                    <label><input id="botao-criptografar-usuario" class="botao-criptografar-usuario" type="submit" value="Criptografar"></label>
+                    <label><input id="botao-descriptografar-usuario" class="botao-descriptografar-usuario" type="submit" value="Descriptografar"></label>
                 </section>
             </section>
             <section class="secao-saida-texto">
@@ -28,7 +28,7 @@
                     <h1 class="titulo-antes-processamento">Nenhuma mensagem encontrada</h1>
                     <p class="paragrafo-antes-processamento">Digite um texto que você deseja criptografar ou descriptografar</p>
                 </section>
-                <textarea class="campo-saida-mensagem"></textarea>
+                <label><textarea id="campo-saida-mensagem" class="campo-saida-mensagem"></textarea></label>
             </section>
         </main>
     </body>
