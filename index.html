@@ -6,13 +6,16 @@
         <title>Decodificador</title>
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Importando fonte Inter-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     </head>
     <body class="pagina-inteira-corpo">
-        <header class="cabecalho-alura-logo">
-            <img class="icone-alura-logo" src="imagens/icone-alura-logo.svg" alt="Logo da Alura">
-        </header>
         <main class="entrada-saida-botoes">
             <section class="secao-entrada-botoes">
+                <section class="cabecalho-alura-logo">
+                    <img class="icone-alura-logo" src="imagens/icone-alura-logo.svg" alt="Logo da Alura">
+                </section>
                 <section class="secao-entrada-usuario">
                     <label><textarea id="campo-entrada-usuario" class="campo-entrada-usuario" placeholder="Digite seu texto"></textarea></label>
                 </section>
@@ -23,7 +26,7 @@
                 </section>
             </section>
             <section class="secao-saida-texto">
-                <section class="mensagem-antes-processsamento">
+                <section class="mensagem-antes-processamento">
                     <img class="imagem-mulher-lupa" src="imagens/mulher-lupa-diamante.svg" alt="Mulher sentada segurando uma lupa, há um diamente flutuando na frente dela">
                     <h1 class="titulo-antes-processamento">Nenhuma mensagem encontrada</h1>
                     <p class="paragrafo-antes-processamento">Digite um texto que você deseja criptografar ou descriptografar</p>
@@ -32,6 +35,5 @@
             </section>
         </main>
     </body>
-    <footer class="rodape-espacamento-conteudo"></footer>
     <script src="script.js"></script>
 </html>
