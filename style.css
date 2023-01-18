@@ -35,7 +35,7 @@
 }
 
 .botao-criptografar-usuario{
-    color: white;
+    color: #FFFFFF;
     font-size: 16px;
     background: #0A3871;
     border: 1px solid #0A3871;
@@ -107,4 +107,15 @@
 
 .campo-saida-mensagem{
     display: none; /*O campo de exibição do texto não aparece inicialmente*/
+    background: #FFFFFF;
+    resize: none;
+    font-size: 24px;
+    color: #495057;
+    width: 350px;
+    height: 86vh;
+    margin: 4vh 25px;
+}
+
+.campo-saida-mensagem:focus{
+    outline: 0;
 }
