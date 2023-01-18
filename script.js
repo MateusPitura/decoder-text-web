@@ -1,9 +1,11 @@
 function manageTextCript(){ //Passa para a funcao que decodifica (com parâmetro de criptografia) o texto do campo de entrada e depois de processada exibe no campo de saida
     campoSaidaMsg.value=decoderTextUser(textInputUser.value, 0);
+    escodeMsgPre();
 }
 
 function manageTextDescr(){ //Passa para a funcao que decodifica (com parâmetro de descriptografia) o texto do campo de entrada e depois de processada exibe no campo de saida
     campoSaidaMsg.value=decoderTextUser(textInputUser.value, 1);
+    escodeMsgPre();
 }
 
 function decoderTextUser(inputMsgUser, modeDecoderCtrl){ //Decodifica o texto do primeiro parâmetro com passe no valor do segundo parâmetro
@@ -24,6 +26,11 @@ function decoderTextUser(inputMsgUser, modeDecoderCtrl){ //Decodifica o texto do
 function genericBtnClick(idHtmlTag, functCallClick){ //Função que generaliza um botão clicável
     var genericBtnUser=document.getElementById(idHtmlTag);
     genericBtnUser.onclick=functCallClick;
+}
+
+function escodeMsgPre(){ //Esconde a mensagem e a imagem antes do processamento e mostra o campo de exibição
+    document.getElementById("mensagem-antes-processamento").style.display='none'; //Esconde
+    campoSaidaMsg.style.display='block'; //Mostra
 }
 
 var textInputUser, campoSaidaMsg;

@@ -104,3 +104,7 @@
     padding: 1vh 0;
     font-size: 16px;
 }
+
+.campo-saida-mensagem{
+    display: none; /*O campo de exibição do texto não aparece inicialmente*/
+}
