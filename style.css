@@ -1,0 +1,106 @@
+.pagina-inteira-corpo{
+    background: #E5E5E5;
+    margin: 3vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.secao-entrada-botoes{
+    display: inline-block;
+    margin: 10vh 0 0 15vw
+}
+
+.cabecalho-alura-logo{
+    position: absolute;
+    top: 4vh;
+    left: 2vh;
+}
+
+.campo-entrada-usuario{
+    width: 42vw;
+    min-width: 270px;
+    height: 60vh;
+    resize: none; /*Impede o usuario de modificar o tamanho do campo*/
+    color: #0A3871;
+    font-size: 24px;
+    background: #E5E5E5; 
+}
+
+.campo-entrada-usuario::placeholder{ /*Permite editar o texto que apararece antes de clicar*/
+    color: rgba(49, 50, 57, 0.25);
+    font-size: 24px;
+}
+
+.campo-entrada-usuario:focus{ /*Permite editar a borda quando se clica no campo*/
+    outline: 0; /*Retira a borda quando se clica no campo*/
+}
+
+.botao-criptografar-usuario{
+    color: white;
+    font-size: 16px;
+    background: #0A3871;
+    border: 1px solid #0A3871;
+    border-radius: 20px;
+    height: 70px;
+    width: 20vw;
+    max-width: 430px;
+    min-width: 130px;
+    margin: 0 1vw 5vh 0
+}
+
+.botao-descriptografar-usuario{
+    color: #0A3871;
+    font-size: 16px;
+    border: 1px solid #0A3871;
+    border-radius: 20px;
+    height: 70px;
+    width: 20vw;
+    max-width: 430px;
+    min-width: 130px;
+    margin: 0 0 5vh 1vw;
+}
+
+.informativo-formatacao-entrada:before{
+    content: '🛈';
+    padding: 0 1vh; /*Separa o ícone do texto*/
+}
+
+.informativo-formatacao-entrada{
+    font-size: 12px;
+    color: #495057;
+    padding: 2vh 1vh;
+}
+
+.secao-saida-texto{
+    background: #FFFFFF;
+    text-align: center;
+    width: 400px;
+    height: 94vh;
+    border-radius: 30px;
+    box-shadow: 10px 10px 30px -10px rgba(0, 0, 0, 0.25);
+    float: right; /*Alinha o texto à direta*/
+    margin-left: 5vw;
+}
+
+.mensagem-antes-processamento{
+    position: relative; /*Para posicionar o elementon no centro verticalmente*/
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 300px; /*Para posicionar o elementon no centro horizontalmente*/
+    margin: auto;
+}
+
+.imagem-mulher-lupa{
+    width: 300px;
+}
+
+.titulo-antes-processamento{
+    color: #343A40;
+    padding: 1vh 0;
+    font-size: 24px;
+}
+
+.paragrafo-antes-processamento{
+    color: #343A40;
+    padding: 1vh 0;
+    font-size: 16px;
+}
