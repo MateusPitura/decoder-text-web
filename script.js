@@ -1,11 +1,11 @@
 function manageTextCript(){ //Passa para a funcao que decodifica (com parâmetro de criptografia) o texto do campo de entrada e depois de processada exibe no campo de saida
     campoSaidaMsg.value=decoderTextUser(textInputUser.value, 0);
-    escodeMsgPre();
+    visibiliMsgOut();
 }
 
 function manageTextDescr(){ //Passa para a funcao que decodifica (com parâmetro de descriptografia) o texto do campo de entrada e depois de processada exibe no campo de saida
     campoSaidaMsg.value=decoderTextUser(textInputUser.value, 1);
-    escodeMsgPre();
+    visibiliMsgOut();
 }
 
 function decoderTextUser(inputMsgUser, modeDecoderCtrl){ //Decodifica o texto do primeiro parâmetro com passe no valor do segundo parâmetro
@@ -28,9 +28,16 @@ function genericBtnClick(idHtmlTag, functCallClick){ //Função que generaliza u
     genericBtnUser.onclick=functCallClick;
 }
 
-function escodeMsgPre(){ //Esconde a mensagem e a imagem antes do processamento e mostra o campo de exibição
+function visibiliMsgOut(){ //Esconde a mensagem e a imagem antes do processamento e mostra o campo de exibição
     document.getElementById("mensagem-antes-processamento").style.display='none'; //Esconde
-    campoSaidaMsg.style.display='block'; //Mostra
+    document.getElementById("campo-pos-processamento").style.display='block'; //Mostra
+}
+
+function copiarSaidaText(){
+    campoSaidaMsg.disabled=false; //Ativa a edição do textarea
+    campoSaidaMsg.select(); //Seleciona o texto do textarea
+    document.execCommand("copy"); //Copia para a área de transferência o texto selecionado
+    campoSaidaMsg.disabled=true; //Desativa a edição da textarea
 }
 
 var textInputUser, campoSaidaMsg;
@@ -39,3 +46,4 @@ textInputUser=document.getElementById("campo-entrada-usuario");
 campoSaidaMsg=document.getElementById("campo-saida-mensagem");
 genericBtnClick("botao-criptografar-usuario", manageTextCript);
 genericBtnClick("botao-descriptografar-usuario", manageTextDescr);
+genericBtnClick("botao-copiar-saida", copiarSaidaText);

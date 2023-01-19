@@ -120,17 +120,37 @@
     font-size: 16px;
 }
 
+.campo-pos-processamento{
+    display: none; /*O campo de exibição do texto e o botão de copiar não aparecem inicialmente*/
+}
+
 .campo-saida-mensagem{
-    display: none; /*O campo de exibição do texto não aparece inicialmente*/
     background: #FFFFFF;
     resize: none;
     font-size: 24px;
     color: #495057;
     width: 350px;
-    height: 86vh;
+    height: calc(82vh - 70px);
     margin: 4vh 25px;
 }
 
 .campo-saida-mensagem:focus{
     outline: 0;
+}
+
+.botao-copiar-saida{
+    color: #0A3871;
+    background: #FFFFFF;
+    font-size: 16px;
+    border: 1px solid #0A3871;
+    border-radius: 20px;
+    height: 70px;
+    width: 350px;
+    transition: 100ms;
+}
+
+.botao-copiar-saida:hover{
+    color: #FFFFFF;
+    background: #0A3871;
+    box-shadow: 10px 10px 30px -10px rgba(0, 0, 0, 0.25);
 }
