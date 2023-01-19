@@ -38,12 +38,18 @@ function copiarSaidaText(){
     campoSaidaMsg.select(); //Seleciona o texto do textarea
     document.execCommand("copy"); //Copia para a área de transferência o texto selecionado
     campoSaidaMsg.disabled=true; //Desativa a edição da textarea
+    btnCopyOutput.value="Copiado ☑"; //Muda o texto do botão
+    setTimeout(changeTextBtn, 1000); //Muda novamente o texto do botão depois de 1 segundo
 }
 
-var textInputUser, campoSaidaMsg;
+function changeTextBtn(){
+    btnCopyOutput.value="Copiar";
+}
+
 var secretCriptKey=[["e","i","a","o","u"],["enter","imes","ai","ober","ufat"]]; //Chave de criptografia
-textInputUser=document.getElementById("campo-entrada-usuario");
-campoSaidaMsg=document.getElementById("campo-saida-mensagem");
+var textInputUser=document.getElementById("campo-entrada-usuario");
+var campoSaidaMsg=document.getElementById("campo-saida-mensagem");
+var btnCopyOutput=document.getElementById("botao-copiar-saida");
 genericBtnClick("botao-criptografar-usuario", manageTextCript);
 genericBtnClick("botao-descriptografar-usuario", manageTextDescr);
 genericBtnClick("botao-copiar-saida", copiarSaidaText);
