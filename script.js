@@ -1,36 +1,19 @@
-function manageTextCript(){ //Passa para a funcao que decodifica (com parâmetro de criptografia) o texto do campo de entrada e depois de processada exibe no campo de saida
-    campoSaidaMsg.value=decoderTextUser(textInputUser.value, 0);
-    visibiliMsgOut();
-}
-
-function manageTextDescr(){ //Passa para a funcao que decodifica (com parâmetro de descriptografia) o texto do campo de entrada e depois de processada exibe no campo de saida
-    campoSaidaMsg.value=decoderTextUser(textInputUser.value, 1);
-    visibiliMsgOut();
-}
-
-function decoderTextUser(inputMsgUser, modeDecoderCtrl){ //Decodifica o texto do primeiro parâmetro com passe no valor do segundo parâmetro
-    if(modeDecoderCtrl==0){ //Criptografa
-        for(var i=0; i<5; i++){ //5 loops porque a chave usada tem 5 espacos
-            inputMsgUser=inputMsgUser.replace(secretCriptKey[0][i],secretCriptKey[1][i]); //replace troca a primeira string encontrada (correspondete ao primeiro parâmetro) e substitui pela string do segundo parâmetro
-        }
-        return inputMsgUser;
+function decoderTextUser(inputMsgUser, keyRelationDec){ //Decodifica o texto de entrada com base numa matriz chave de relação. Retorna a mensagem decodificada 
+    for(var i=0; i<keyRelationDec[0].length; i++){ //A quantidade de loops é referente a quantidade de itens da primeira linha da matriz
+        inputMsgUser=inputMsgUser.replace(keyRelationDec[0][i],keyRelationDec[1][i]); //replace troca a primeira string encontrada (correspondete ao primeiro parâmetro) e substitui pela string do segundo parâmetro
     }
-    else if(modeDecoderCtrl==1){ //Descriptografa
-        for(var i=4; i>=0; i--){
-            inputMsgUser=inputMsgUser.replace(secretCriptKey[1][i],secretCriptKey[0][i]); //Mesma lógica de criptografar, porém lê as chaves de trás para frente
-        }
-        return inputMsgUser;
-    }
-}
-
-function genericBtnClick(idHtmlTag, functCallClick){ //Função que generaliza um botão clicável
-    var genericBtnUser=document.getElementById(idHtmlTag);
-    genericBtnUser.onclick=functCallClick;
+    visibiliMsgOut();
+    return inputMsgUser;
 }
 
 function visibiliMsgOut(){ //Esconde a mensagem e a imagem antes do processamento e mostra o campo de exibição
     document.getElementById("mensagem-antes-processamento").style.display='none'; //Esconde
     document.getElementById("campo-pos-processamento").style.display='block'; //Mostra
+}
+
+function genericBtnClick(idHtmlTag, functCallClick){ //Função que generaliza um botão clicável
+    var genericBtnUser=document.getElementById(idHtmlTag);
+    genericBtnUser.onclick=functCallClick;
 }
 
 function copiarSaidaText(){
@@ -39,17 +22,14 @@ function copiarSaidaText(){
     document.execCommand("copy"); //Copia para a área de transferência o texto selecionado
     campoSaidaMsg.disabled=true; //Desativa a edição da textarea
     btnCopyOutput.value="Copiado ☑"; //Muda o texto do botão
-    setTimeout(changeTextBtn, 1000); //Muda novamente o texto do botão depois de 1 segundo
+    setTimeout(function(){btnCopyOutput.value="Copiar"}, 1000); //Muda novamente o texto do botão depois de 1 segundo, para não precisar criar uma função que apenas muda o texto, passado o código dentro da função setTimeout
 }
 
-function changeTextBtn(){
-    btnCopyOutput.value="Copiar";
-}
-
-var secretCriptKey=[["e","i","a","o","u"],["enter","imes","ai","ober","ufat"]]; //Chave de criptografia
+var secretCriptKey=[[/e/gi,/i/gi,/a/gi,/o/gi,/u/gi],["enter","imes","ai","ober","ufat"]]; //Chave de criptografia. /.../gi é uma expressão regular, g de global e i para retirar o case sensitive
+var secretDescriKey=[[/enter/gi,/imes/gi,/ai/gi,/ober/gi,/ufat/gi],["e","i","a","o","u"]]; //Chave de descriptografia
 var textInputUser=document.getElementById("campo-entrada-usuario");
 var campoSaidaMsg=document.getElementById("campo-saida-mensagem");
 var btnCopyOutput=document.getElementById("botao-copiar-saida");
-genericBtnClick("botao-criptografar-usuario", manageTextCript);
-genericBtnClick("botao-descriptografar-usuario", manageTextDescr);
+genericBtnClick("botao-criptografar-usuario", function(){campoSaidaMsg.value=decoderTextUser(textInputUser.value, secretCriptKey)}); //Dessa forma é possível passar uma função com parâmetros e manipular seu retorno ao clicar no botão
+genericBtnClick("botao-descriptografar-usuario", function(){campoSaidaMsg.value=decoderTextUser(textInputUser.value, secretDescriKey)});
 genericBtnClick("botao-copiar-saida", copiarSaidaText);
