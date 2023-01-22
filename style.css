@@ -1,6 +1,6 @@
 .pagina-inteira-corpo{
     background: #E5E5E5;
-    margin: 3vh;
+    margin: 3vh 3vw;
     font-family: 'Inter', sans-serif;
 }
 
@@ -76,13 +76,13 @@
 
 .informativo-formatacao-entrada:before{
     content: '🛈';
-    padding: 0 1vh; /*Separa o ícone do texto*/
+    padding: 0 1vh 0 0; /*Separa o ícone do texto*/
 }
 
 .informativo-formatacao-entrada{
     font-size: 12px;
     color: #495057;
-    padding: 2vh 1vh;
+    padding: 2vh 0;
 }
 
 .secao-saida-texto{
@@ -153,4 +153,61 @@
     color: #FFFFFF;
     background: #0A3871;
     box-shadow: 10px 10px 30px -10px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 768px){ /*Para dispositivos móveis*/
+    .pagina-inteira-corpo{
+        width: 96vw;
+        margin: auto;
+    }
+
+    .secao-entrada-botoes{
+        display: block;
+        margin: 15vh 0 0 0;
+    }
+
+    .cabecalho-alura-logo{
+        top: 3vh;
+        left: -25px;
+    }
+
+    .campo-entrada-usuario{
+        width: 96vw;
+        margin: auto;
+        font-size: 32px;
+    }
+
+    .campo-entrada-usuario::placeholder{
+        font-size: 32px;
+    }
+
+    .botao-criptografar-usuario,
+    .botao-descriptografar-usuario{
+        width: 46vw;
+    }
+
+    .secao-saida-texto{
+        width: 96vw;
+        margin: 0 auto 3vh;
+        float: none; /*Retira o alinhamento do texto à direta*/
+        height: 50vh;
+    }
+
+    .mensagem-antes-processamento{
+        width: 90vw;
+    }
+
+    .imagem-mulher-lupa{ /*Para a imagem da mulher com lupa não aparece em dispositivos móveis*/
+        display: none;
+    }
+
+    .campo-saida-mensagem{
+        width: 90vw;
+        margin: 4vh auto;
+        height: calc(38vh - 70px);
+    }
+
+    .botao-copiar-saida{
+        width: 88vw;
+    }
 }
