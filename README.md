@@ -13,7 +13,7 @@
 	
 ## Descrição
 	
-Este é um projeto que desenvolvi usando HTML, CSS e JavaScript. Ele consiste em um decodificador de texto, onde o usuário pode condificar um texto ou então inserir uma mensagem codificada e o programa irá convertê-la para o texto original. Disponível para computadores e celulares
+Consiste em um decodificador de texto, onde o usuário pode codificar um texto ou então inserir uma mensagem codificada e o programa irá convertê-la para o texto original. Desenvolvi usando HTML, CSS e JavaScript. Disponível para computadores e celulares
 	
 ## Índice
 	
